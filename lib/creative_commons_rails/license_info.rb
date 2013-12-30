@@ -34,14 +34,18 @@ module CreativeCommonsRails
 
     def deed_url
       if jurisdiction == "unported"
-        "http://creativecommons.org/licenses/#{type}/#{version}/deed.#{language}"
+        "http://creativecommons.org/licenses/#{url_type}/#{version}/deed.#{language}"
       else
-        "http://creativecommons.org/licenses/#{type}/#{version}/#{jurisdiction}/deed.#{language}"
+        "http://creativecommons.org/licenses/#{url_type}/#{version}/#{jurisdiction}/deed.#{language}"
       end
     end
 
     def icon_url(size = :normal)
-      "http://i.creativecommons.org/l/#{type}/#{version}/#{size == :compact ? '80x15' : '88x31'}.png"
+      "http://i.creativecommons.org/l/#{url_type}/#{version}/#{size == :compact ? '80x15' : '88x31'}.png"
+    end
+
+    def url_type
+      type.to_s.gsub('_', '-')
     end
 
     def translated_title
