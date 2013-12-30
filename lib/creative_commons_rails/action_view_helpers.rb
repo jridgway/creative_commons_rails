@@ -15,11 +15,11 @@ module CreativeCommonsRails
       l = LicenseInfo.find({type: type}.merge(options))
 
       html = ""
-      html << link_to(l.deed_url, rel: 'license') do
+      html << link_to(l.deed_url, rel: 'license', :target => '_blank') do
         image_tag(l.icon_url(options[:size]), alt: l.translated_title, style: "border-width:0")
       end
       html << "<br />"
-      html << I18n.t(:license_notice, license_title: link_to(l.translated_title, l.deed_url, rel: 'license'))
+      html << I18n.t(:license_notice, license_title: link_to(l.translated_title, l.deed_url, rel: 'license', :target => '_blank'))
       html.html_safe
     end
 
