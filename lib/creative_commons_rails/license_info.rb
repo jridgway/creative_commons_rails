@@ -41,7 +41,7 @@ module CreativeCommonsRails
     end
 
     def icon_url(size = :normal)
-      "http://i.creativecommons.org/l/#{url_type}/#{version}/#{size == :compact ? '80x15' : '88x31'}.png"
+      "https://i.creativecommons.org/l/#{url_type}/#{version}/#{size == :compact ? '80x15' : '88x31'}.png"
     end
 
     def url_type
